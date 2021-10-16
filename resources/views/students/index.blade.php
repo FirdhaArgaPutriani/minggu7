@@ -20,7 +20,8 @@
                             <tr> 
                                 <th>NIM</th>  
                                 <th>Name</th> 
-                                <th>Class</th> 
+                                <th>Class</th>
+                                <th>Action</th>
                             </tr> 
                         </thead> 
                         <tbody> 
@@ -28,7 +29,8 @@
                             <tr> 
                                 <td>{{ $s->nim }}</td> 
                                 <td>{{ $s->name }}</td> 
-                                <td>{{ $s->class }}</td> 
+                                <td>{{ $s->class }}</td>
+                                <a href="/students/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
                             </tr> 
                             @endforeach 
                         </tbody> 
