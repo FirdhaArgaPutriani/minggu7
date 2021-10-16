@@ -15,6 +15,7 @@
                     @endif 
   
                     <table class="table table-responsive table-striped"> 
+                    <a href="/students/create" class="btn btn-primary">Add Data</a><br><br>
                         <thead> 
                             <tr> 
                                 <th>NIM</th>  
