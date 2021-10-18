@@ -5,7 +5,7 @@
     <div class="row justify-content-center"> 
         <div class="col-md-8"> 
             <div class="card"> 
-                <div class="card-header">{{ __('ADD STUDENT DATA') }}</div> 
+                <div class="card-header">{{ __('ADD USERS DATA') }}</div> 
                 
                 <div class="card-body"> 
                     @if (session('status')) 
@@ -14,11 +14,11 @@
                         </div> 
                     @endif 
                         
-                    <form action="/students" method="post"> 
+                    <form action="/users" method="post"> 
                         @csrf 
                         <div class="form-group"> 
-                            <label for="nim">NIM</label> 
-                            <input type="text" class="form-control" required="required" name="nim"></br> 
+                            <label for="username">Username</label> 
+                            <input type="text" class="form-control" required="required" name="username"></br> 
                         </div> 
 
                         <div class="form-group"> 
@@ -27,18 +27,13 @@
                         </div> 
 
                         <div class="form-group"> 
-                            <label for="class">Class</label> 
-                            <input type="text" class="form-control" required="required" name="class"></br> 
+                            <label for="email">E-mail</label> 
+                            <input type="text" class="form-control" required="required" name="email"></br> 
                         </div> 
 
                         <div class="form-group">
-                            <label for="departement">Department</label> 
-                            <input type="text" class="form-control" required="required" name="departement"></br> 
-                        </div> 
-
-                        <div class="form-group"> 
-                            <label for="phone">Phone Number</label> 
-                            <input type="text" class="form-control" required="required" name="phone"></br> 
+                            <label for="password">Password</label> 
+                            <input password_hash(type=(text)) class="form-control" required="required" name="password"></br> 
                         </div> 
 
                         <button type="submit" name="add" class="btn btn-primary float-right">Add Data</button> 

@@ -22,8 +22,6 @@
                         <tr><th>E-mail</th><th>:</th><td>{{ $user->email }}</td></tr>
                         <tr><th>Created At</th><th>:</th><td>{{ $user->created_at }}</td></tr>
                     </table>
-
-                    <a href="/students" class="btn btn-primary">Students Data</a><br><br>
                 </div>
             </div>
         </div>

@@ -34,12 +34,12 @@
                         </div> 
                         
                         <div class="form-group"> 
-                            <label for="department">Department</label> 
-                            <input type="text" class="form-control" required="required" name="department" value="{{ $student->department }}"></br> 
+                            <label for="departement">Department</label> 
+                            <input type="text" class="form-control" required="required" name="departement" value="{{ $student->departement }}"></br> 
                         </div> 
     
                         <div class="form-group"> 
-                            <label for="phone_number">Phone</label> 
+                            <label for="phone">Phone Number</label> 
                             <input type="text" class="form-control" required="required" name="phone" value="{{ $student->phone }}"></br> 
                         </div> 
                         <button type="submit" name="edit" class="btn btn-primary float-right">Save Changes</button> 
