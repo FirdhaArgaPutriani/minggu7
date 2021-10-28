@@ -45,7 +45,7 @@
                             <tr> 
                                 <td>{{ $s->nim }}</td> 
                                 <td>{{ $s->name }}</td> 
-                                <td>{{ $s->class }}</td>
+                                <td>{{ $s->kelas->class_name }}</td>
                                 <td>{{ $s->departement }}</td>
                                 <td>{{ $s->phone }}</td>
                                 <td>
