@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    //use HasFactory;
+    //use HasFactory;g
     protected $fillable = ['class_id', 'nim', 'name', 'department', 'phone_number']; 
  
     public function kelas(){ 
         return $this->belongsTo(Kelas::class, 'class_id'); 
+    }
+
+    public function student_course(){ 
+        return $this->belongsTo(Student_Course::class, 'student_id'); 
     }
 }
