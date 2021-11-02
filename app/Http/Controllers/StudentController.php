@@ -6,15 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Kelas;
 
-class StudentController extends Controller
-{
+class StudentController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $student = Student::with('kelas')->get(); 
         return view('students.index', ['student'=>$student]); 
     }
@@ -24,8 +22,7 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         $kelas = Kelas::all(); 
         return view('students.create',['kelas'=>$kelas]);
     }
@@ -36,8 +33,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $student = new Student; 
          
         $student->nim = $request->nim; 
@@ -62,8 +58,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
         $student = Student::find($id); 
         return view('students.show',['student'=>$student]); 
     }
@@ -74,8 +69,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
         $student = Student::find($id); 
         $kelas = Kelas::all(); 
         return view('students.edit',['student'=>$student, 'kelas'=>$kelas]); 
@@ -88,8 +82,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $student = Student::find($id); 
         $student->nim = $request->nim; 
         $student->name = $request->name;  
@@ -102,7 +95,8 @@ class StudentController extends Controller
         $student->kelas()->associate($kelas); 
         $student->save(); 
         
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')
+            ->with('success', 'Add data success!');
     }
 
     /**
@@ -111,10 +105,25 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $student = Student::find($id); 
         $student->delete(); 
         return redirect()->route('students.index'); 
+    }
+
+    public function search(Request $request){
+        $key = trim($request->get('q'));
+
+        $students = Student::query()
+            ->where('name', 'like', "%($key)%")
+            ->get()
+        ; 
+
+        return view('students.index', ['student' => $students]); 
+    }
+    
+    public function detail($id){
+        $student = Student::find($id);
+        return view('students.detail', ['student' => $student]);
     }
 }

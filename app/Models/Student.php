@@ -14,7 +14,7 @@ class Student extends Model
         return $this->belongsTo(Kelas::class, 'class_id'); 
     }
 
-    public function student_course(){ 
-        return $this->belongsTo(Student_Course::class, 'student_id'); 
+    public function courses(){
+        return $this->belongsToMany(Course::class)->withPivot('nilai');
     }
 }

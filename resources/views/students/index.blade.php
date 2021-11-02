@@ -16,18 +16,14 @@
   
                     <table class="table table-responsive table-striped"> 
                         <a href="/students/create" class="btn btn-primary">Add Data</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <form method=GET action="/students">
-			                <input type="text" name="cari" placeholder="Search Student">
-			                <button type="submit" name="search" class="btn btn-primary">Search</button>
+                        
+                        <form action="/students" method="get" role="search">
+                            {{ csrf_field() }}
+                            <div class="input_group">
+			                    <input type="text" class="form-control" placeholder="Search Student" name="q">
+			                    <span>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
                         </form>
 
                         <thead> 
@@ -54,7 +50,8 @@
                                         @csrf 
                                         @method('DELETE') 
                                         <button type="submit" name="delete" class="btn btn-danger">Delete</button> 
-                                        <a href="/students/{{$s->id}}" class="btn btn-info">Show</a> 
+                                        <a href="/students/{{$s->id}}" class="btn btn-info">Show</a>
+                                        <a href="/students/{{$s->id}}/detail" class="btn btn-success">Nilai</a>
                                     </form>
                                 </td> 
                             </tr> 
