@@ -58,10 +58,10 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a id="navbar" class="nav-link" href="/users">
-                                    User Data
-                                </a>
+                            <li class="nav-item"> 
+                                @can('manage-users') 
+                                    <a class="nav-link" href="/users">User Data</a> 
+                                @endcan 
                             </li>
 
                             <li class="nav-item">
